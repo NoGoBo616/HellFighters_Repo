@@ -15,10 +15,12 @@ public class Player_N_Controler : MonoBehaviour
     bool coolDown;
     public GameObject atackVFX;
     public GameObject especialVFX;
+    public Animator animator;
 
     // Start is called before the first frame update 
     void Start() 
     { 
+        animator = GetComponent<Animator>();
         especialVFX.SetActive(false);
         coolDown = true;
     }  
@@ -34,6 +36,8 @@ public class Player_N_Controler : MonoBehaviour
         {
             Flip();
         }
+
+        MoveAnim();
     }
 
     //Flip
@@ -62,6 +66,30 @@ public class Player_N_Controler : MonoBehaviour
         playerRb.velocity = new Vector3(moveimput.x * speed, moveimput.y * speed, 0);
     }
 
+    void MoveAnim()
+    {
+        if (moveimput == new Vector2(0, 0))
+        {
+            animator.SetBool("Run", false);
+        }
+        else
+        {
+            animator.SetBool("Run", true);
+        }
+        
+        if (eresUnChico)
+        {
+            if (speed >= 50)
+            {
+                animator.SetBool("Dash", true);
+            }
+            else
+            {
+                animator.SetBool("Dash", false);
+            }
+        }
+    }
+
     //Attack
     public void HandleAttack()
     {
@@ -69,6 +97,7 @@ public class Player_N_Controler : MonoBehaviour
         {
             if (eresUnChico)
             {
+                animator.SetTrigger("Attack");
                 StartCoroutine(RagnarPunch());
             }
             else
