@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2593683300169741662}
-  - component: {fileID: 8703794999426104386}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -32,41 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6092497708957919267}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &8703794999426104386
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 633546930034125225}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!1 &2354441189431463855
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +126,7 @@ GameObject:
   - component: {fileID: 6092497708957919267}
   - component: {fileID: 9187583747954846147}
   - component: {fileID: 1877013127386504812}
-  - component: {fileID: 6639711315510648356}
+  - component: {fileID: 9187808110004916659}
   - component: {fileID: 7843129037137338822}
   m_Layer: 0
   m_Name: E1
@@ -261,7 +225,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6639711315510648356
+--- !u!114 &9187808110004916659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

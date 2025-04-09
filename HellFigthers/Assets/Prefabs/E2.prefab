@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 3051324974304119347}
   - component: {fileID: 2329009347750864394}
   - component: {fileID: 7651583695567405296}
-  - component: {fileID: 8384181425085317833}
+  - component: {fileID: 6622283851163530380}
   - component: {fileID: 1648626265309368116}
   m_Layer: 0
   m_Name: E2
@@ -141,7 +141,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8384181425085317833
+--- !u!114 &6622283851163530380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

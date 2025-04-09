@@ -83,11 +83,11 @@ public class Ennemy : MonoBehaviour
         }
         else
         {
-            //if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player"))
             {
-                //GameObject player = collision.gameObject;
-                //Live playerLive = collision.gameObject.GetComponent<Live>();
-                //playerLive.Damage(attack);
+                GameObject player = collision.gameObject;
+                Live playerLive = collision.gameObject.GetComponent<Live>();
+                playerLive.Damage(attack);
             }
         }
         
