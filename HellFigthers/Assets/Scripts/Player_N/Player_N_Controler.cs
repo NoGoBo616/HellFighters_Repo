@@ -14,6 +14,7 @@ public class Player_N_Controler : MonoBehaviour
     public Transform attackPoint;
     bool coolDown;
     public GameObject atackVFX;
+    public GameObject atackVFX2;
     public GameObject especialVFX;
     public Animator animator;
 
@@ -102,8 +103,17 @@ public class Player_N_Controler : MonoBehaviour
             }
             else
             {
-                Instantiate(atackVFX, attackPoint.position, Quaternion.identity);
-                StartCoroutine(Cooldown());
+                if (flip)
+                {
+                    Instantiate(atackVFX, attackPoint.position, Quaternion.identity);
+                    StartCoroutine(Cooldown());
+                }
+                else
+                {
+                    Instantiate(atackVFX2, attackPoint.position, Quaternion.identity);
+                    StartCoroutine(Cooldown());
+                }
+                
             }
         }
     }

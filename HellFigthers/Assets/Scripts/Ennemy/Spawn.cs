@@ -21,6 +21,8 @@ public class Spawn : MonoBehaviour
     {
         if (isSpawning == false)
         {
+            int randomSpawner = Random.Range(0, spawned.Length);
+            Instantiate(spawned[randomSpawner], transform.position, Quaternion.identity);
             StartCoroutine(Spawning());
         }
     }
@@ -28,8 +30,6 @@ public class Spawn : MonoBehaviour
     private IEnumerator Spawning()
     {
         isSpawning = true;
-        int randomSpawner = Random.Range(0, spawned.Length);
-        Instantiate(spawned[randomSpawner], transform.position, Quaternion.identity);
         yield return new WaitForSeconds(timeToSpawn);
         posY = Random.Range(-9, 10);
         posX = Random.Range(-17, 18);
