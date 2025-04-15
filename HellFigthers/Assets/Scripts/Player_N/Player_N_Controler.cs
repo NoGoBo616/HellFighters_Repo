@@ -89,6 +89,10 @@ public class Player_N_Controler : MonoBehaviour
                 animator.SetBool("Dash", false);
             }
         }
+        else
+        {
+
+        }
     }
 
     //Attack
