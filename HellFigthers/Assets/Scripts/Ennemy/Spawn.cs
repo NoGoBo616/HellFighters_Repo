@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    int posX;
-    int posY;
     public GameObject[] spawned;
     public float timeToSpawn;
     bool isSpawning;
@@ -14,6 +12,12 @@ public class Spawn : MonoBehaviour
     void Start()
     {
         isSpawning = false;
+        Recuento();
+    }
+
+    void Recuento()
+    {
+        StartCoroutine(CountTime());
     }
 
     // Update is called once per frame
@@ -31,10 +35,15 @@ public class Spawn : MonoBehaviour
     {
         isSpawning = true;
         yield return new WaitForSeconds(timeToSpawn);
-        posY = Random.Range(-9, 10);
-        posX = Random.Range(-17, 18);
-        gameObject.transform.position = new Vector2(posX, posY);
         isSpawning = false;
+        yield return null;
+    }
+
+    private IEnumerator CountTime()
+    {
+        yield return new WaitForSeconds(30);
+        timeToSpawn = timeToSpawn - 0.1f;
+        Recuento(); 
         yield return null;
     }
 }
