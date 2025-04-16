@@ -17,6 +17,7 @@ public class Player_N_Controler : MonoBehaviour
     public GameObject atackVFX2;
     public GameObject especialVFX;
     public Animator animator;
+    public float TCD;
 
     // Start is called before the first frame update 
     void Start() 
@@ -104,6 +105,7 @@ public class Player_N_Controler : MonoBehaviour
             {
                 animator.SetTrigger("Attack");
                 StartCoroutine(RagnarPunch());
+                StartCoroutine(Cooldown());
             }
             else
             {
@@ -124,7 +126,7 @@ public class Player_N_Controler : MonoBehaviour
     private IEnumerator Cooldown()
     {
         coolDown = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(TCD);
         coolDown = true;
         yield return null;
     }

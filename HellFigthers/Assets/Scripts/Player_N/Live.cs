@@ -28,10 +28,23 @@ public class Live : MonoBehaviour
             liveCur = 0;
             gameObject.SetActive( false );
         }
+
+        if ( liveCur >= liveMax )
+        {
+            liveCur = liveMax;
+        }
     }
 
     public void Damage(float damage)
     {
         liveCur -= damage;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PickUp"))
+        {
+            liveCur = liveCur + 0.2f;
+        }
     }
 }
