@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Live : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class Live : MonoBehaviour
         if (liveCur <= 0 )
         {
             liveCur = 0;
-            gameObject.SetActive( false );
+            SceneManager.LoadScene(3);
         }
 
         if ( liveCur >= liveMax )
