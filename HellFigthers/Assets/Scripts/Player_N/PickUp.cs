@@ -6,6 +6,7 @@ public class PickUp : MonoBehaviour
 {
     float posX;
     float posY;
+    public GameObject pickUpGO;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,5 +16,12 @@ public class PickUp : MonoBehaviour
             posY = Random.Range(-8, 8);
             gameObject.transform.position = new Vector2(posX, posY);
         }
+    }
+    private IEnumerator RagnarPunch()
+    {
+        pickUpGO.SetActive(true);
+        yield return new WaitForSeconds(1);
+        pickUpGO.SetActive(false);
+        yield return null;
     }
 }
