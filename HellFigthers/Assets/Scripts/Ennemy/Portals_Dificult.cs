@@ -9,7 +9,7 @@ public class Portals_Dificult : MonoBehaviour
     public GameObject portal3;
     public int Dificult;
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         if (Dificult == 1)
@@ -37,4 +37,6 @@ public class Portals_Dificult : MonoBehaviour
             portal3.gameObject.SetActive(false);
         }
     }
+
+    
 }

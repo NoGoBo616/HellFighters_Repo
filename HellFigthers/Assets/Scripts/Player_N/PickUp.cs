@@ -6,13 +6,9 @@ public class PickUp : MonoBehaviour
 {
     float posX;
     float posY;
-    //float scaleX;
-    //float scaleY;
 
     void Start()
     {
-        //scaleX = 1.25f
-        //scaleY = 1.25f
         posX = Random.Range(-16, 16);
         posY = Random.Range(-8, 8);
         gameObject.transform.position = new Vector2(posX, posY);
@@ -26,5 +22,5 @@ public class PickUp : MonoBehaviour
             posY = Random.Range(-8, 8);
             gameObject.transform.position = new Vector2(posX, posY);
         }
-    }
+    } 
 }

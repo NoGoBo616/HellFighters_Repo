@@ -13,11 +13,13 @@ public class Player_N_Controler : MonoBehaviour
     public bool flip;
     public Transform attackPoint;
     bool coolDown;
+    bool EcoolDown;
     public GameObject atackVFX;
     public GameObject atackVFX2;
     public GameObject especialVFX;
     public Animator animator;
     public float TCD;
+    public float TECD;
 
     // Start is called before the first frame update 
     void Start() 
@@ -25,6 +27,7 @@ public class Player_N_Controler : MonoBehaviour
         animator = GetComponent<Animator>();
         especialVFX.SetActive(false);
         coolDown = true;
+        EcoolDown = true;
     }  
      
     // Update is called once per frame 
@@ -142,14 +145,27 @@ public class Player_N_Controler : MonoBehaviour
     //Especial
     public void HandleEspecial()
     {
-        if (eresUnChico)
+        if (EcoolDown)
         {
-            StartCoroutine(DashState());
+            if (eresUnChico)
+            {
+                StartCoroutine(DashState());
+                StartCoroutine(ECooldown());
+            }
+            else
+            {
+                StartCoroutine(ShieldState());
+                StartCoroutine(ECooldown());
+            }
         }
-        else
-        {
-            StartCoroutine(ShieldState());
-        }
+    }
+
+    private IEnumerator ECooldown()
+    {
+        EcoolDown = false;
+        yield return new WaitForSeconds(TECD);
+        EcoolDown = true;
+        yield return null;
     }
 
     private IEnumerator DashState()
@@ -158,7 +174,7 @@ public class Player_N_Controler : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         speed = 10;
 
-        yield return null;
+        yield return null; 
     }
 
     private IEnumerator ShieldState()
