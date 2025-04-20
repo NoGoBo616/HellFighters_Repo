@@ -12,6 +12,13 @@ public class Ennemy : MonoBehaviour
     public GameObject fueguito;
     public GameObject atackVFX;
     public Transform attLoc;
+    public GameObject sprite;
+    public Vector3 spriteScale;
+
+    private void Start()
+    {
+        spriteScale = sprite.gameObject.transform.localScale;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -21,6 +28,7 @@ public class Ennemy : MonoBehaviour
             {
                 vida = vida - 1;
                 Instantiate(atackVFX, attLoc.position, Quaternion.identity);
+                StartCoroutine(GameFeel());
             }
         }
         else
@@ -35,7 +43,11 @@ public class Ennemy : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Purification"))
         {
-            maldicion = maldicion - 1;
+            if (maldicion >= 0)
+            {
+                maldicion = maldicion - 1;
+                StartCoroutine(GameFeel());
+            }
         }
     }
 
@@ -63,5 +75,18 @@ public class Ennemy : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
+    }
+
+    private IEnumerator GameFeel()
+    {
+        sprite.gameObject.transform.localScale = new Vector3 (0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sprite.gameObject.transform.localScale = spriteScale; 
+        yield return null;
     }
 }
