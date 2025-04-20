@@ -59,7 +59,7 @@ public class Ennemy : MonoBehaviour
         {
             fueguito.gameObject.transform.localScale = new Vector3(0, 0, 0);
         }
-        if (vida <= 0) 
+        if (vida <= 0 && maldicion <= 0) 
         {
             gameObject.SetActive(false);
         }

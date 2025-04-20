@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1579683923025447546
+--- !u!1001 &716897252473628187
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1522421310660304193, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2250698115416476689, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: vida
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2250698115416476689, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: maldicion
@@ -22,27 +22,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2766209028521216604, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_Size.x
-      value: 6.522646
+      value: 10.021401
       objectReference: {fileID: 0}
     - target: {fileID: 2766209028521216604, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_Size.y
-      value: 11.133839
+      value: 10.617632
       objectReference: {fileID: 0}
     - target: {fileID: 2766209028521216604, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_Offset.x
-      value: 0.07742691
+      value: 0.22081804
       objectReference: {fileID: 0}
     - target: {fileID: 2766209028521216604, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_Offset.y
-      value: 0.008974314
+      value: 0.06633091
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774968096903104530, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: m_Radius
+      value: 3.0429862
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774968096903104530, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.2761859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774968096903104530, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0000001521332
       objectReference: {fileID: 0}
     - target: {fileID: 4340700059476298254, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_LocalScale.x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4340700059476298254, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_LocalScale.y
-      value: 7
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4340700059476298254, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4799691670999219361, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5483573430644216948, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_Name
-      value: Ennemy_3
+      value: Ennemy_5 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6276486367380916014, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_LocalScale.x
@@ -99,7 +115,15 @@ PrefabInstance:
     - target: {fileID: 7320310180211943758, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 605276bf66d90444ba5d7e6e1a89c0a1, type: 3}
+      objectReference: {fileID: 21300000, guid: ce1605977ef5785498daf0c9702103a4, type: 3}
+    - target: {fileID: 8464002410634302415, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464002410634302415, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

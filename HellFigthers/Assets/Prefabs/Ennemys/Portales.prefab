@@ -186,22 +186,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawn
       objectReference: {fileID: 0}
-    - target: {fileID: 5947481744147788879, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7384508892986500602, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
-      propertyPath: spawned.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7384508892986500602, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
-      propertyPath: spawned.Array.data[1]
-      value: 
-      objectReference: {fileID: 5483573430644216948, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
-    - target: {fileID: 7384508892986500602, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
-      propertyPath: spawned.Array.data[2]
-      value: 
-      objectReference: {fileID: 2710652003469174890, guid: 698ce5af6f1364a4cbb80d2749dc3524, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
