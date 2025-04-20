@@ -14,10 +14,12 @@ public class Ennemy : MonoBehaviour
     public Transform attLoc;
     public GameObject sprite;
     public Vector3 spriteScale;
+    bool canAttack;
 
     private void Start()
     {
         spriteScale = sprite.gameObject.transform.localScale;
+        canAttack = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,9 +57,13 @@ public class Ennemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            GameObject player = collision.gameObject;
-            Live playerLive = collision.gameObject.GetComponent<Live>();
-            playerLive.Damage(attack);
+           if (canAttack)
+            {
+                GameObject player = collision.gameObject;
+                Live playerLive = collision.gameObject.GetComponent<Live>();
+                playerLive.Damage(attack);
+                StartCoroutine(Attack());
+            }
         }
     }
 
@@ -87,6 +93,17 @@ public class Ennemy : MonoBehaviour
         sprite.gameObject.transform.localScale = new Vector3 (0, 0, 0);
         yield return new WaitForSeconds(0.1f);
         sprite.gameObject.transform.localScale = spriteScale; 
+        yield return null;
+    }
+
+    private IEnumerator Attack()
+    {
+        canAttack = false;
+        sprite.gameObject.transform.localScale = spriteScale * 1.2f;
+        yield return new WaitForSeconds(0.1f);
+        sprite.gameObject.transform.localScale = spriteScale;
+        yield return new WaitForSeconds(0.2f);
+        canAttack = true;
         yield return null;
     }
 }
