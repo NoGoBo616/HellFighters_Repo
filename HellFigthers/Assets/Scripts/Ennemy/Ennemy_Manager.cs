@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,9 +16,13 @@ public class Ennemy : MonoBehaviour
     public GameObject sprite;
     public Vector3 spriteScale;
     bool canAttack;
+    public AudioClip[] sounds;
+    private AudioSource audioSource;
+
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         spriteScale = sprite.gameObject.transform.localScale;
         canAttack = true;
     }
@@ -31,6 +36,7 @@ public class Ennemy : MonoBehaviour
                 vida = vida - 1;
                 Instantiate(atackVFX, attLoc.position, Quaternion.identity);
                 StartCoroutine(GameFeel());
+                audioSource.PlayOneShot(sounds[0]);
             }
         }
         else
@@ -40,6 +46,7 @@ public class Ennemy : MonoBehaviour
                 GameObject player = collision.gameObject;
                 Live playerLive = collision.gameObject.GetComponent<Live>();
                 playerLive.Damage(attack);
+                audioSource.PlayOneShot(sounds[1]);
             }
         }
         
@@ -49,6 +56,7 @@ public class Ennemy : MonoBehaviour
             {
                 maldicion = maldicion - 1;
                 StartCoroutine(GameFeel());
+                audioSource.PlayOneShot(sounds[2]);
             }
         }
     }
@@ -85,6 +93,7 @@ public class Ennemy : MonoBehaviour
 
     private void OnDisable()
     {
+        audioSource.PlayOneShot(sounds[3]);
         Destroy(gameObject);
     }
 

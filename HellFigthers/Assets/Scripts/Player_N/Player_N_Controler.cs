@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,9 @@ public class Player_N_Controler : MonoBehaviour
     public Animator animator;
     public float TCD;
     public float TECD;
+    public AudioClip[] Clips;
+    private AudioSource audioSource;
+
 
     // Start is called before the first frame update 
     void Start() 
@@ -28,6 +32,7 @@ public class Player_N_Controler : MonoBehaviour
         especialVFX.SetActive(false);
         coolDown = true;
         EcoolDown = true;
+        audioSource = GetComponent<AudioSource>();
     }  
      
     // Update is called once per frame 
@@ -104,6 +109,7 @@ public class Player_N_Controler : MonoBehaviour
     {
         if (coolDown)
         {
+            audioSource.PlayOneShot(Clips[0]);
             if (eresUnChico)
             {
                 animator.SetTrigger("Attack");
@@ -147,6 +153,7 @@ public class Player_N_Controler : MonoBehaviour
     {
         if (EcoolDown)
         {
+            audioSource.PlayOneShot(Clips[1]);
             if (eresUnChico)
             {
                 StartCoroutine(DashState());
