@@ -109,7 +109,7 @@ public class Player_N_Controler : MonoBehaviour
     {
         if (coolDown)
         {
-            audioSource.PlayOneShot(Clips[0]);
+            //audioSource.PlayOneShot(Clips[0]);
             if (eresUnChico)
             {
                 animator.SetTrigger("Attack");
@@ -153,7 +153,7 @@ public class Player_N_Controler : MonoBehaviour
     {
         if (EcoolDown)
         {
-            audioSource.PlayOneShot(Clips[1]);
+            //audioSource.PlayOneShot(Clips[1]);
             if (eresUnChico)
             {
                 StartCoroutine(DashState());
