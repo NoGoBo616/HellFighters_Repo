@@ -8,15 +8,15 @@ public class Portals_Dificult : MonoBehaviour
     public GameObject portal1;
     public GameObject portal2;
     public GameObject portal3;
-    public int Dificult;
+    public static int Dificult;
 
     public void CambiarDificultad(int nuevaDificultad)
     {
         PlayerPrefs.SetInt("Dificultad", nuevaDificultad);
 
     }
-        //Update is called once per frame
-        void Update()
+    //Update is called once per frame
+    void Update()
     {
 
 
@@ -46,6 +46,4 @@ public class Portals_Dificult : MonoBehaviour
         }
 
     }
-
-
 }

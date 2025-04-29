@@ -135,7 +135,7 @@ public class Player_N_Controler : MonoBehaviour
                     Instantiate(atackVFX2, attackPoint.position, Quaternion.identity);
                     StartCoroutine(Cooldown());
                 }
-                
+                animator.SetTrigger("Attack");
             }
 
             //audioSource.pitch = pitch;

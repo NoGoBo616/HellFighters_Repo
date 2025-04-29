@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DIff : MonoBehaviour
 {
-    public int DificultBase;
+    public static int DificultBase;
     public void ChangeDificult(int nuevaDificultad)
     {
         DificultBase = nuevaDificultad;
