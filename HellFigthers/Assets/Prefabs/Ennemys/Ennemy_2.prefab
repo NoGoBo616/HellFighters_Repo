@@ -172,6 +172,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7152822643140475364}
     - target: {fileID: 2250698115416476689, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: puntaje
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250698115416476689, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: fueguito
       value: 
       objectReference: {fileID: 6552960377441548367}

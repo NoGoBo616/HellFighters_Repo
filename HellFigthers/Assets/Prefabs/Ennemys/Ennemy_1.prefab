@@ -190,6 +190,11 @@ MonoBehaviour:
   attLoc: {fileID: 8464002410634302415}
   sprite: {fileID: 775838572164449786}
   spriteScale: {x: 0, y: 0, z: 0}
+  sounds:
+  - {fileID: 8300000, guid: e1e1b9dea8ece4342af4be1625d38c39, type: 3}
+  - {fileID: 0}
+  gameManager: {fileID: 0}
+  puntaje: 100
 --- !u!50 &4883708444032296283
 Rigidbody2D:
   serializedVersion: 4

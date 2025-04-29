@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player_N_Controler : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Player_N_Controler : MonoBehaviour
     public float TECD;
     public AudioClip[] Clips;
     private AudioSource audioSource;
+    public Image espImg;
 
 
     // Start is called before the first frame update 
@@ -32,8 +34,9 @@ public class Player_N_Controler : MonoBehaviour
         especialVFX.SetActive(false);
         coolDown = true;
         EcoolDown = true;
-        audioSource = GetComponent<AudioSource>();
-    }  
+        audioSource = GetComponent<AudioSource>(); 
+       
+    }
      
     // Update is called once per frame 
     void Update() 
@@ -48,6 +51,11 @@ public class Player_N_Controler : MonoBehaviour
         }
 
         MoveAnim();
+
+        if (espImg.fillAmount < 1)
+        {
+            espImg.fillAmount = espImg.fillAmount + 0.25f;
+        }
     }
 
     //Flip
@@ -100,7 +108,14 @@ public class Player_N_Controler : MonoBehaviour
         }
         else
         {
-
+            if (especialVFX)
+            {
+                animator.SetBool("Shield", true);
+            }
+            else
+            {
+                animator.SetBool("Shield", false);
+            }
         }
     }
 
@@ -109,7 +124,6 @@ public class Player_N_Controler : MonoBehaviour
     {
         if (coolDown)
         {
-            //audioSource.PlayOneShot(Clips[0]);
             if (eresUnChico)
             {
                 animator.SetTrigger("Attack");
@@ -130,6 +144,10 @@ public class Player_N_Controler : MonoBehaviour
                 }
                 
             }
+
+            //audioSource.pitch = pitch;
+            audioSource.PlayOneShot(Clips[0]);
+            //soundRef.RandomPitch();
         }
     }
     private IEnumerator Cooldown()
@@ -153,7 +171,6 @@ public class Player_N_Controler : MonoBehaviour
     {
         if (EcoolDown)
         {
-            //audioSource.PlayOneShot(Clips[1]);
             if (eresUnChico)
             {
                 StartCoroutine(DashState());
@@ -164,14 +181,20 @@ public class Player_N_Controler : MonoBehaviour
                 StartCoroutine(ShieldState());
                 StartCoroutine(ECooldown());
             }
+
+            //audioSource.pitch = pitch;
+            audioSource.PlayOneShot(Clips[0]);
+            //soundRef.RandomPitch();
         }
     }
 
     private IEnumerator ECooldown()
     {
         EcoolDown = false;
+        espImg.gameObject.SetActive(false);
         yield return new WaitForSeconds(TECD);
         EcoolDown = true;
+        espImg.gameObject.SetActive(true);
         yield return null;
     }
 
@@ -180,7 +203,6 @@ public class Player_N_Controler : MonoBehaviour
         speed = 50;
         yield return new WaitForSeconds(0.1f);
         speed = 10;
-
         yield return null; 
     }
 

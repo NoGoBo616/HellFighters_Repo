@@ -9,6 +9,7 @@ public class Live : MonoBehaviour
     [SerializeField] Image player_Live;
     public float liveMax = 1f;
     public float liveCur;
+
     // Start is called before the first frame update
     void Start()
     {

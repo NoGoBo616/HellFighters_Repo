@@ -17,6 +17,10 @@ PrefabInstance:
       value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 2250698115416476689, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
+      propertyPath: puntaje
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250698115416476689, guid: 4e80d38170655454fb9187b7ede843c7, type: 3}
       propertyPath: maldicion
       value: 1
       objectReference: {fileID: 0}
