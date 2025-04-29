@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,14 @@ public class Portals_Dificult : MonoBehaviour
     public GameObject portal2;
     public GameObject portal3;
     public int Dificult;
-  
 
-    //Update is called once per frame
-    void Update()
+    public void CambiarDificultad(int nuevaDificultad)
+    {
+        PlayerPrefs.SetInt("Dificultad", nuevaDificultad);
+
+    }
+        //Update is called once per frame
+        void Update()
     {
 
 
@@ -33,16 +38,13 @@ public class Portals_Dificult : MonoBehaviour
             portal2.gameObject.SetActive(true);
             portal3.gameObject.SetActive(true);
         }
-        if (Dificult >= 4 || Dificult <= 0) 
+        if (Dificult >= 4 || Dificult <= 0)
         {
             portal1.gameObject.SetActive(false);
             portal2.gameObject.SetActive(false);
             portal3.gameObject.SetActive(false);
         }
-    }
-    public void ChangeDificult(int nuevaDificultad)
-    {
-        Dificult = nuevaDificultad;
+
     }
 
 
