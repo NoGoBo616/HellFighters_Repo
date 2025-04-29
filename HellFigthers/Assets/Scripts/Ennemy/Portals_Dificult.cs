@@ -8,7 +8,7 @@ public class Portals_Dificult : MonoBehaviour
     public GameObject portal1;
     public GameObject portal2;
     public GameObject portal3;
-    public static int Dificult;
+    public int Dificult;
 
     public void CambiarDificultad(int nuevaDificultad)
     {
