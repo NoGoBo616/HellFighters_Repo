@@ -108,14 +108,7 @@ public class Player_N_Controler : MonoBehaviour
         }
         else
         {
-            if (especialVFX)
-            {
-                animator.SetBool("Shield", true);
-            }
-            else
-            {
-                animator.SetBool("Shield", false);
-            }
+            
         }
     }
 
@@ -178,6 +171,7 @@ public class Player_N_Controler : MonoBehaviour
             }
             else
             {
+                animator.SetTrigger("Shield");
                 StartCoroutine(ShieldState());
                 StartCoroutine(ECooldown());
             }
