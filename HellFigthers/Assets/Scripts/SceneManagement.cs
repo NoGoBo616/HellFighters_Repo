@@ -8,6 +8,7 @@ public class SceneManagement : MonoBehaviour
 {
 
     public int specificSceneToLoad;
+    public Portals_Dificult portales;
 
     private void OnTriggerEnter(Collider other)
     {

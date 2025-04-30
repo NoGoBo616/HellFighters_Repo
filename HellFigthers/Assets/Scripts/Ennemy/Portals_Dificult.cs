@@ -9,16 +9,22 @@ public class Portals_Dificult : MonoBehaviour
     public GameObject portal2;
     public GameObject portal3;
     public int Dificult;
+    public int DificultBase;
 
-    public void CambiarDificultad(int nuevaDificultad)
+    void Awake()
     {
-        PlayerPrefs.SetInt("Dificultad", nuevaDificultad);
-
+        DontDestroyOnLoad(gameObject);
     }
+
+    public void ChangeDificult(int nuevaDificultad)
+    {
+        DificultBase = nuevaDificultad;
+    }
+
     //Update is called once per frame
     void Update()
     {
-
+        Dificult = DificultBase;
 
         if (Dificult == 1)
         {

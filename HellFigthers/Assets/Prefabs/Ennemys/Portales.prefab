@@ -51,6 +51,7 @@ MonoBehaviour:
   portal2: {fileID: 7763794333603273545}
   portal3: {fileID: 5351892220822513259}
   Dificult: 2
+  DificultBase: 0
 --- !u!1001 &444736055296065562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 89381941525391113, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -1.9899998
       objectReference: {fileID: 0}
     - target: {fileID: 89381941525391113, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -199,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 89381941525391113, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8
+      value: -1.99
       objectReference: {fileID: 0}
     - target: {fileID: 89381941525391113, guid: 393609a7921e6cc4bbe21b9bef9990dc, type: 3}
       propertyPath: m_LocalPosition.z

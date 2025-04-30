@@ -17,6 +17,7 @@ public class Player_N_Controler : MonoBehaviour
     bool coolDown;
     bool EcoolDown;
     public GameObject atackVFX;
+    public GameObject atackRagnar;
     public GameObject atackVFX2;
     public GameObject especialVFX;
     public Animator animator;
@@ -27,6 +28,7 @@ public class Player_N_Controler : MonoBehaviour
     public Image espImg;
 
 
+
     // Start is called before the first frame update 
     void Start() 
     { 
@@ -35,9 +37,16 @@ public class Player_N_Controler : MonoBehaviour
         coolDown = true;
         EcoolDown = true;
         audioSource = GetComponent<AudioSource>(); 
-       
     }
-     
+
+    private void OnEnable()
+    {
+        if (eresUnChico)
+        {
+            //especialVFX.gameObject.transform.position = new Vector3(0, -5, 0)
+        }
+    }
+
     // Update is called once per frame 
     void Update() 
     { 
@@ -194,8 +203,10 @@ public class Player_N_Controler : MonoBehaviour
 
     private IEnumerator DashState()
     {
+        atackRagnar.SetActive(true);
         speed = 50;
         yield return new WaitForSeconds(0.1f);
+        atackRagnar.SetActive(false);
         speed = 10;
         yield return null; 
     }
