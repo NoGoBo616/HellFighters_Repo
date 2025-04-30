@@ -18,8 +18,8 @@ public class Ennemy : MonoBehaviour
     bool canAttack;
     public AudioClip[] sounds;
     private AudioSource audioSource;
-    public GameManager gameManager;
     public int puntaje;
+    public Live vidas;
 
 
     private void Start()
@@ -95,8 +95,7 @@ public class Ennemy : MonoBehaviour
 
     private void OnDisable()
     {
-        gameManager.puntos = gameManager.puntos + puntaje;
-        Debug.Log(gameManager.puntos);
+        vidas.puntos += puntaje;
         audioSource.PlayOneShot(sounds[3]);
         Destroy(gameObject);
     }
