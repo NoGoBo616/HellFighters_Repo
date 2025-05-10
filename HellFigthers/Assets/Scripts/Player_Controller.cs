@@ -162,11 +162,6 @@ public class Player_Controller : MonoBehaviour
 
     //AttackRagnar
 
-    public void AttackChange()
-    {
-        canAttack = !canAttack;
-    }
-
     public void HandleAttack()
     {
         if (coolDown)
@@ -189,12 +184,8 @@ public class Player_Controller : MonoBehaviour
     private IEnumerator DashState()
     {
         speed = 50;
-        attackX.gameObject.SetActive(true);
-        attackY.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         speed = 10;
-        attackX.gameObject.SetActive(false);
-        attackY.gameObject.SetActive(false);
         yield return null;
     }
 

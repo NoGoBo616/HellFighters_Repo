@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,70 +7,27 @@ using UnityEngine.PlayerLoop;
 
 public class Ennemy : MonoBehaviour
 {
-    public int enemigo;
-    //GameObject[] sprites; 
     public int vida;
     public int maldicion;
     public float attack;
     public GameObject fueguito;
     public GameObject atackVFX;
     public Transform attLoc;
+    public GameObject sprite;
+    public Vector3 spriteScale;
+    bool canAttack;
+    public AudioClip[] sounds;
+    private AudioSource audioSource;
+    public int puntaje;
+    public Live vidas;
 
-    private void OnEnable()
+
+    private void Start()
     {
-        enemigo = Random.Range(1, 3);
-
-        if (enemigo == 1 ) 
-        {
-            //sprites[0].gameObject.SetActive(true);
-            vida = 1; maldicion = 0;
-            attack = 0.1f;
-        }
-        if (enemigo == 2)
-        {
-            //sprites[1].gameObject.SetActive(true);
-            vida = 1; maldicion = 1;
-            attack = 0.1f;
-        }
-        if (enemigo == 3)
-        {
-            //sprites[2].gameObject.SetActive(true);
-            vida = 1; maldicion = 1;
-            attack = 0.1f;
-        }
-        if (enemigo == 4)
-        {
-            //sprites[3].gameObject.SetActive(true);
-            vida = 2; maldicion = 1;
-            attack = 0.3f;
-        }
-        if (enemigo == 5)
-        {
-            //sprites[4].gameObject.SetActive(true);
-            vida = 2; maldicion = 1;
-            attack = 0.3f;
-        }
-        if (enemigo == 6)
-        {
-            //sprites[5].gameObject.SetActive(true);
-            vida = 0; maldicion = 3;
-            attack = 0.3f;
-        }
-        if (enemigo == 7)
-        {
-            //sprites[6].gameObject.SetActive(true);
-            vida = 3; maldicion = 1;
-            attack = 0.7f;
-        }
-        if (enemigo == 8)
-        {
-            //sprites[7].gameObject.SetActive(true);
-            vida = 3; maldicion = 1;
-            attack = 0.7f;
-        }
+        audioSource = GetComponent<AudioSource>();
+        spriteScale = sprite.gameObject.transform.localScale;
+        canAttack = true;
     }
-
-    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -79,21 +37,43 @@ public class Ennemy : MonoBehaviour
             {
                 vida = vida - 1;
                 Instantiate(atackVFX, attLoc.position, Quaternion.identity);
+                StartCoroutine(GameFeel());
+                audioSource.PlayOneShot(sounds[0]);
             }
         }
         else
         {
-            //if (collision.gameObject.CompareTag("Player"))
+            if (collision.gameObject.CompareTag("Player"))
             {
-                //GameObject player = collision.gameObject;
-                //Live playerLive = collision.gameObject.GetComponent<Live>();
-                //playerLive.Damage(attack);
+                GameObject player = collision.gameObject;
+                Live playerLive = collision.gameObject.GetComponent<Live>();
+                playerLive.Damage(attack);
+                audioSource.PlayOneShot(sounds[1]);
             }
         }
         
         if (collision.gameObject.CompareTag("Purification"))
         {
-            maldicion = maldicion - 1;
+            if (maldicion >= 0)
+            {
+                maldicion = maldicion - 1;
+                StartCoroutine(GameFeel());
+                audioSource.PlayOneShot(sounds[2]);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+           if (canAttack)
+            {
+                GameObject player = collision.gameObject;
+                Live playerLive = collision.gameObject.GetComponent<Live>();
+                playerLive.Damage(attack);
+                StartCoroutine(Attack());
+            }
         }
     }
 
@@ -107,9 +87,35 @@ public class Ennemy : MonoBehaviour
         {
             fueguito.gameObject.transform.localScale = new Vector3(0, 0, 0);
         }
-        if (vida <= 0) 
+        if (vida <= 0 && maldicion <= 0) 
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
+    }
+
+    private void OnDisable()
+    {
+        vidas.puntos += puntaje;
+        audioSource.PlayOneShot(sounds[3]);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator GameFeel()
+    {
+        sprite.gameObject.transform.localScale = new Vector3 (0, 0, 0);
+        yield return new WaitForSeconds(0.1f);
+        sprite.gameObject.transform.localScale = spriteScale; 
+        yield return null;
+    }
+
+    private IEnumerator Attack()
+    {
+        canAttack = false;
+        sprite.gameObject.transform.localScale = spriteScale * 1.2f;
+        yield return new WaitForSeconds(0.1f);
+        sprite.gameObject.transform.localScale = spriteScale;
+        yield return new WaitForSeconds(0.2f);
+        canAttack = true;
+        yield return null;
     }
 }
